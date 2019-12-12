@@ -54,29 +54,33 @@ class Trie {
     tn.isWord = true;
   }
 
-  /** Returns if the word is in the trie. */
-  public boolean search(String word) {
+  /**
+   * 检索指定的单词是否存在trie中
+   *
+   * @param word
+   * @return
+   */
+  private TrieNode searchWord(String word) {
     TrieNode tn = root;
     for (int i = 0; i < word.length(); i++) {
       char c = word.charAt(i);
       if (tn.children[c - 'a'] == null) {
-        return false;
+        return null;
       }
       tn = tn.children[c - 'a'];
     }
-    return tn.isWord;
+    return tn;
+  }
+
+  /** Returns if the word is in the trie. */
+  public boolean search(String word) {
+    TrieNode tn = searchWord(word);
+    return null == tn ? false : tn.isWord;
   }
 
   /** Returns if there is any word in the trie that starts with the given prefix. */
   public boolean startsWith(String prefix) {
-    TrieNode tn = root;
-    for (int i = 0; i < prefix.length(); i++) {
-      char c = prefix.charAt(i);
-      if (tn.children[c - 'a'] == null) {
-        return false;
-      }
-      tn = tn.children[c - 'a'];
-    }
-    return true;
+    TrieNode tn = searchWord(prefix);
+    return null != tn;
   }
 }
