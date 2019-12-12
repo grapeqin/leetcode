@@ -8,6 +8,7 @@ package github.grapeqin.trie;
  * @date 2019-12-12
  */
 public class LeetCode209 {
+
   public static void main(String[] args) {
     Trie trie = new Trie();
     trie.insert("apple");
@@ -21,18 +22,44 @@ public class LeetCode209 {
 
 class Trie {
 
+  // 根结点
   private TrieNode root;
 
   /** 结点声明 */
-  private static final class TrieNode {
+  static final class TrieNode {
+    // 值域
     private char val;
-    private boolean isWord;
+
+    // 是否健值的结尾
+    private boolean end;
+
+    // 存放孩子结点
     private TrieNode[] children = new TrieNode[26];
 
     private TrieNode() {}
 
     private TrieNode(char val) {
       this.val = val;
+    }
+
+    public boolean isEnd() {
+      return end;
+    }
+
+    public void setEnd(boolean end) {
+      this.end = end;
+    }
+
+    public char getVal() {
+      return val;
+    }
+
+    public TrieNode getChild(char c) {
+      return this.children[c - 'a'];
+    }
+
+    public void setChild(char c) {
+      this.children[c - 'a'] = new TrieNode(c);
     }
   }
 
@@ -46,12 +73,12 @@ class Trie {
     TrieNode tn = root;
     for (int i = 0; i < word.length(); i++) {
       char c = word.charAt(i);
-      if (tn.children[c - 'a'] == null) {
-        tn.children[c - 'a'] = new TrieNode(c);
+      if (tn.getChild(c) == null) {
+        tn.setChild(c);
       }
-      tn = tn.children[c - 'a'];
+      tn = tn.getChild(c);
     }
-    tn.isWord = true;
+    tn.setEnd(true);
   }
 
   /**
@@ -64,10 +91,10 @@ class Trie {
     TrieNode tn = root;
     for (int i = 0; i < word.length(); i++) {
       char c = word.charAt(i);
-      if (tn.children[c - 'a'] == null) {
+      if (tn.getChild(c) == null) {
         return null;
       }
-      tn = tn.children[c - 'a'];
+      tn = tn.getChild(c);
     }
     return tn;
   }
@@ -75,7 +102,7 @@ class Trie {
   /** Returns if the word is in the trie. */
   public boolean search(String word) {
     TrieNode tn = searchWord(word);
-    return null == tn ? false : tn.isWord;
+    return null == tn ? false : tn.isEnd();
   }
 
   /** Returns if there is any word in the trie that starts with the given prefix. */
