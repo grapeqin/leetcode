@@ -44,5 +44,8 @@ public class LeetCode22_01 {
     int n = 3;
     List<String> ans = leetCode2201.generateParenthesis(n);
     ans.forEach((x) -> System.out.println(x));
+
+    n =2;
+    System.out.println("1 << n : " +  ((1 << n)-1));
   }
 }
