@@ -92,13 +92,17 @@ public class LeetCode51NQueen {
   public static void main(String[] args) {
     LeetCode51NQueen nQueen = new LeetCode51NQueen();
     System.out.println();
-    List<List<String>> ans = nQueen.nQueen(5);
+    int n = 8;
+    List<List<String>> ans = nQueen.nQueen(n);
+    int counter = 0;
     for (List<String> list : ans) {
+      counter++;
       System.out.println("[");
       for (String str : list) {
         System.out.println(str);
       }
       System.out.println("]");
     }
+    System.out.println(String.format("%d 皇后一共有 %d 种解法", n, counter));
   }
 }
