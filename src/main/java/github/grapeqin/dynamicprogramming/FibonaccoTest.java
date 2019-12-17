@@ -27,6 +27,9 @@ public class FibonaccoTest {
    * @return
    */
   public int fibonacci2(int n) {
+    if (n < 2) {
+      return n;
+    }
     int[] array = new int[n + 1];
     array[0] = 0;
     array[1] = 1;
@@ -50,6 +53,9 @@ public class FibonaccoTest {
    * @return
    */
   public int fibonacci3(int n) {
+    if (n < 2) {
+      return n;
+    }
     int[] array = new int[n + 1];
     array[0] = 0;
     array[1] = 1;
@@ -66,6 +72,9 @@ public class FibonaccoTest {
    * @return
    */
   public int fibonacci4(int n) {
+    if (n < 2) {
+      return n;
+    }
     int a = 0;
     int b = 1;
     int c = a + b;
@@ -80,6 +89,12 @@ public class FibonaccoTest {
   public static void main(String[] args) {
     FibonaccoTest test = new FibonaccoTest();
     int n = 40;
+    validFibonacci(n, test);
+    n = 0;
+    validFibonacci(n, test);
+  }
+
+  private static void validFibonacci(int n, FibonaccoTest test) {
     System.out.println(test.fibonacci4(n) == test.fibonacci(n));
     System.out.println(test.fibonacci4(n) == test.fibonacci2(n));
     System.out.println(test.fibonacci4(n) == test.fibonacci3(n));
