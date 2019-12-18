@@ -31,14 +31,48 @@ public class LeetCode152 {
     return max;
   }
 
+  /**
+   * 标准的动态规划
+   *
+   * @param nums
+   * @return
+   */
+  public int maxProduct2(int[] nums) {
+    if (nums.length < 1) {
+      return 0;
+    }
+    // dp状态定义
+    // dp[i][0] 表示从头开始到第i个元素的乘积最大值
+    // dp[i][1] 表示从头开始到第i个元素的乘积最小值
+    int[][] dp = new int[nums.length][2];
+    dp[0][0] = dp[0][1] = nums[0];
+    int max = nums[0];
+    for (int i = 1; i < nums.length; i++) {
+      if (nums[i] > 0) {
+        dp[i][0] = Math.max(nums[i], dp[i - 1][0] * nums[i]);
+        dp[i][1] = Math.min(nums[i], dp[i - 1][1] * nums[i]);
+      } else {
+        dp[i][0] = Math.max(nums[i], dp[i - 1][1] * nums[i]);
+        dp[i][1] = Math.min(nums[i], dp[i - 1][0] * nums[i]);
+      }
+      max = Math.max(max,Math.max(dp[i][0],dp[i][1]));
+    }
+    return max;
+  }
+
+
   public static void main(String[] args) {
     LeetCode152 leetCode152 = new LeetCode152();
     int[] nums = new int[] {2, 3, -2, 4};
-    int max = leetCode152.maxProduct(nums);
-    System.out.println("the subarray string max is : " + max);
+    System.out.println("the subarray string max is : " + leetCode152.maxProduct(nums));
+    System.out.println("the subarray string max is : " + leetCode152.maxProduct2(nums));
 
     nums = new int[] {-2, 0, -1};
-    max = leetCode152.maxProduct(nums);
-    System.out.println("the subarray string max is : " + max);
+    System.out.println("the subarray string max is : " + leetCode152.maxProduct(nums));
+    System.out.println("the subarray string max is : " + leetCode152.maxProduct2(nums));
+
+    nums = new int[] {-4, -3, -2};
+    System.out.println("the subarray string max is : " + leetCode152.maxProduct(nums));
+    System.out.println("the subarray string max is : " + leetCode152.maxProduct2(nums));
   }
 }
