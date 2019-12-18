@@ -36,7 +36,7 @@ public class LeetCode123 {
    * @param prices
    * @return
    */
-  public int maxProfit(int[] prices) {
+  public int maxProfit1(int[] prices) {
   	//参数有效性检查
   	if(prices.length == 0){
   		return 0;
@@ -64,16 +64,92 @@ public class LeetCode123 {
     return maxProfix;
   }
 
+  /**
+   * 动态规划(简化状态)
+   *
+   * 这道题最多的交易次数为2 ,我们把 K 这一层循环展开
+   *
+   * @param prices
+   * @return
+   */
+  public int maxProfit2(int[] prices) {
+    // 参数有效性检查
+    if (prices.length <= 1) {
+      return 0;
+    }
+    int[][][] dp = new int[prices.length][3][2];
+    // 只要持有股票收益就会损失当天的股价-prices[i]
+    dp[0][0][1] = dp[0][2][1] = dp[0][1][1] = -prices[0];
+    // 默认不进行任何交易，初始利润为0
+    int maxProfix = 0;
+    for (int i = 1; i < prices.length; i++) {
+      dp[i][1][0] = Math.max(dp[i - 1][1][0], dp[i - 1][1][1] + prices[i]);
+      dp[i][1][1] = Math.max(dp[i - 1][1][1], dp[i - 1][0][0] - prices[i]);
+
+      dp[i][2][0] = Math.max(dp[i - 1][2][0], dp[i - 1][2][1] + prices[i]);
+      dp[i][2][1] = Math.max(dp[i - 1][2][1], dp[i - 1][1][0] - prices[i]);
+    }
+    int last = prices.length - 1;
+    // i = 1 表示第2天
+    int maxK = 2;
+    for (int k = 0; k <= maxK; k++) {
+      maxProfix = Math.max(maxProfix, dp[last][k][0]);
+    }
+    return maxProfix;
+  }
+
+  /**
+   * 动态规划(简化状态)
+   *
+   * 通过maxProfit2 K展开后可以看出 prices迭代过程中仅有如下几个状态在转移
+   *
+   * dp[i][1][0]
+   * dp[i][1][1]
+   * dp[i][2][0]
+   * dp[i][2][1]
+   *
+   * 我们令
+   *
+   * dp0 = dp[i][1][0]
+   * dp1 = dp[i][1][1]
+   * dp2 = dp[i][2][0]
+   * dp3 = dp[i][2][1]
+   *
+   * @param prices
+   * @return
+   */
+  public int maxProfit3(int[] prices) {
+    // 参数有效性检查
+    if (prices.length <= 1) {
+      return 0;
+    }
+    // 只要持有股票收益就会损失当天的股价-prices[i]
+    int dp0 = 0, dp2 = 0;
+    int dp1 = -prices[0], dp3 = -prices[0];
+    for (int i = 1; i < prices.length; i++) {
+      dp0 = Math.max(dp0, dp1 + prices[i]);
+      dp1 = Math.max(dp1, -prices[i]);
+      dp2 = Math.max(dp2, dp3 + prices[i]);
+      dp3 = Math.max(dp3, dp0 - prices[i]);
+    }
+    return Math.max(dp0,dp2);
+  }
+
   public static void main(String[] args) {
     LeetCode123 leetCode123 = new LeetCode123();
     int[] prices = new int[] {3, 3, 5, 0, 0, 3, 1, 4};
-    int maxProfit = leetCode123.maxProfit(prices);
-    System.out.println("{3, 3, 5, 0, 0, 3, 1, 4} 最大利润为：" + maxProfit);
+    System.out.println("{3, 3, 5, 0, 0, 3, 1, 4} 最大利润为：" + leetCode123.maxProfit1(prices));
+    System.out.println("{3, 3, 5, 0, 0, 3, 1, 4} 最大利润为：" + leetCode123.maxProfit2(prices));
+    System.out.println("{3, 3, 5, 0, 0, 3, 1, 4} 最大利润为：" + leetCode123.maxProfit3(prices));
+
     prices = new int[] {1, 2, 3, 4, 5};
-    maxProfit = leetCode123.maxProfit(prices);
-    System.out.println("{1,2,3,4,5} 最大利润为:" + maxProfit);
+    System.out.println("{1,2,3,4,5} 最大利润为:" + leetCode123.maxProfit1(prices));
+    System.out.println("{1,2,3,4,5} 最大利润为:" + leetCode123.maxProfit2(prices));
+    System.out.println("{1,2,3,4,5} 最大利润为:" + leetCode123.maxProfit3(prices));
+
     prices = new int[] {7, 6, 4, 3, 1};
-    maxProfit = leetCode123.maxProfit(prices);
-    System.out.println("{7,6,4,3,1} 最大利润为:" + maxProfit);
+    System.out.println("{7,6,4,3,1} 最大利润为:" + leetCode123.maxProfit1(prices));
+    System.out.println("{7,6,4,3,1} 最大利润为:" + leetCode123.maxProfit2(prices));
+    System.out.println("{7,6,4,3,1} 最大利润为:" + leetCode123.maxProfit3(prices));
   }
 }
