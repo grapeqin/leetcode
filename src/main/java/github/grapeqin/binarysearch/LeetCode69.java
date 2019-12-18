@@ -44,4 +44,35 @@ public class LeetCode69 {
     }
     return (int) x;
   }
+
+  public double mySqrt(long x, double precision) {
+  	double dx = x;
+    double a = dx;
+    while (Math.abs(dx * dx - a) > precision) {
+      dx = (dx + a / dx) / 2;
+    }
+    return dx;
+  }
+
+  public double mySqrt(double x, double precision) {
+    double left = 0, right = x, mid = (left + right) / 2.0;
+    while (Math.abs(x - mid * mid) > precision) {
+      if (mid > x / mid) {
+        right = mid;
+      } else {
+        left = mid;
+      }
+      mid = (left + right) / 2.0;
+    }
+    return mid;
+  }
+
+  public static void main(String[] args) {
+    LeetCode69 leetCode69 = new LeetCode69();
+    double x = 2.0;
+    double precision = 1e-10;
+    System.out.println(leetCode69.mySqrt(x, precision));
+    System.out.println(Math.sqrt(2));
+    System.out.println(leetCode69.mySqrt(2,precision));
+  }
 }
