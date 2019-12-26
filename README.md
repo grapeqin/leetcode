@@ -1,5 +1,7 @@
 # leetcode
-记录leetcode源代码
+
+- [LeetCode2:两数相加](src/main/java/github/grapeqin/LeetCode2.java)
+- [LeetCode3:无重复字符的最长子串](src/main/java/github/grapeqin/LeetCode3.java)
 
 #### 1. 位运算
 
