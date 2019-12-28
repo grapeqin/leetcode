@@ -26,7 +26,8 @@ public class LeetCode1 {
       if (table.containsKey(num)) {
         return new int[] {table.get(num), i};
       }
-      table.put(num, i);
+      // 将当前元素放入hash表
+      table.put(nums[i], i);
     }
     return null;
   }
