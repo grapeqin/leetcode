@@ -15,6 +15,7 @@ public class LeetCode13 {
   private Map<String, Integer> map = new HashMap<>();
 
   {
+    // 初始化罗马数字与整数的对应关系
     map.put("I", 1);
     map.put("V", 5);
     map.put("X", 10);
@@ -36,6 +37,7 @@ public class LeetCode13 {
     }
     int ans = 0;
     for (int i = 0; i < s.length(); ) {
+      // 优先判断是否还有2位罗马数字
       if (i + 2 <= s.length() && map.containsKey(s.substring(i, i + 2))) {
         ans += map.get(s.substring(i, i + 2));
         i += 2;
@@ -47,9 +49,9 @@ public class LeetCode13 {
     return ans;
   }
 
-  public static void main(String[] args){
-  	LeetCode13 leetCode13 = new LeetCode13();
-  	String s = "IXLVIII";
+  public static void main(String[] args) {
+    LeetCode13 leetCode13 = new LeetCode13();
+    String s = "IXLVIII";
     System.out.println(leetCode13.romanToInt(s));
   }
 }
