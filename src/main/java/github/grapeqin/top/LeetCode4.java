@@ -1,4 +1,4 @@
-package github.grapeqin;
+package github.grapeqin.top;
 
 /**
  * 寻找两个有序数组的中位数
@@ -15,7 +15,7 @@ package github.grapeqin;
  *
  * <p>假设两个数组分别为A、B,长度分别为m和n,将数组A分割为2个子数组有m+1种分法,即i=0~m-1
  * i=0表示leftA子数组为空,i=m-1表示rightA子数组为空,为了保证切分的在正中间,切分后 length(leftA) = length(rightA) 即 i = m - i
- * 同理,对数组B切分也可以得到 length(leftB) = length(rightB) 即 j = m - j
+ * 同理,对数组B切分也可以得到 length(leftB) = length(rightB) 即 j = n - j
  *
  * <p>我们将leftA、leftB 合并成 leftPart数组,rightA、rightB合并成 rightPart数组
  *
@@ -44,33 +44,22 @@ public class LeetCode4 {
     int iMin = 0;
     int iMax = m;
     while (iMin <= iMax) {
-      int i = (iMin + iMax) >> 1;
+      int i = iMin + iMax >>> 1;
       // 根据中位数的定义推导出来的公式
-      int j = (m + n + 1) / 2 - i;
-      if (i != 0 && j != n && nums1[i - 1] > nums2[j]) {
+      int j = (m + n + 1 >>> 1) - i;
+      // i太大 中位数在nums1中左移 max往左
+      if (i > 0 && j < n && nums1[i - 1] > nums2[j]) {
         iMax = i - 1;
-      } else if (i != m && j != 0 && nums2[j - 1] > nums1[i]) {
+        // i太小 中位数在nums1右移
+      } else if (i < m && j > 0 && nums2[j - 1] > nums1[i]) {
         iMin = i + 1;
       } else {
-        int maxLeft;
-        if (i == 0) {
-          maxLeft = nums2[j - 1];
-        } else if (j == 0) {
-          maxLeft = nums1[i - 1];
-        } else {
-          maxLeft = Math.max(nums1[i - 1], nums2[j - 1]);
-        }
+        int maxLeft =
+            i == 0 ? nums2[j - 1] : j == 0 ? nums1[i - 1] : Math.max(nums1[i - 1], nums2[j - 1]);
         if ((m + n & 1) == 1) {
           return maxLeft;
         }
-        int minRight;
-        if (i == m) {
-          minRight = nums2[j];
-        } else if (j == n) {
-          minRight = nums1[i];
-        } else {
-          minRight = Math.min(nums1[i], nums2[j]);
-        }
+        int minRight = i == m ? nums2[j] : j == n ? nums1[i] : Math.min(nums1[i], nums2[j]);
         return (maxLeft + minRight) / 2.0;
       }
     }
