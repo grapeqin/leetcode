@@ -1,4 +1,4 @@
-# leetcode
+# leetcode top list
 
 - [LeetCode1:两数相加](src/main/java/github/grapeqin/top/LeetCode1.java)
 - [LeetCode2:两数相加](src/main/java/github/grapeqin/top/LeetCode2.java)
