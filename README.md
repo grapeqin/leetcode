@@ -1,7 +1,7 @@
 # leetcode
 
 - [LeetCode2:两数相加](src/main/java/github/grapeqin/LeetCode2.java)
-- [LeetCode3:无重复字符的最长子串](src/main/java/github/grapeqin/LeetCode3.java)
+- [LeetCode3:无重复字符的最长子串](src/main/java/github/grapeqin/top/LeetCode3.java)
 - [LeetCode4:寻找两个有序数组中的中位数](src/main/java/github/grapeqin/top/LeetCode4.java)
 - [LeetCode5:最长回文子串](src/main/java/github/grapeqin/top/LeetCode5.java)
 - [LeetCode7:整数反转](src/main/java/github/grapeqin/top/LeetCode7.java)
