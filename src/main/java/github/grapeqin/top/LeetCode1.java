@@ -1,4 +1,4 @@
-package github.grapeqin.skillfull;
+package github.grapeqin.top;
 
 import java.util.HashMap;
 import java.util.Map;
