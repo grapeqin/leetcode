@@ -75,5 +75,9 @@ public class LeetCode4 {
     nums1 = new int[] {1, 2};
     nums2 = new int[] {3, 4};
     System.out.println(leetCode4.findMedianSortedArrays(nums1, nums2));
+
+    nums1 = new int[] {};
+    nums2 = new int[] {1};
+    System.out.println(leetCode4.findMedianSortedArrays(nums1, nums2));
   }
 }
