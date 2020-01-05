@@ -19,8 +19,7 @@ public class LeetCode2 {
   }
 
   public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-    ListNode head = new ListNode(0);
-    ListNode cur = head, p1 = l1, p2 = l2;
+    ListNode head = new ListNode(0), cur = head, p1 = l1, p2 = l2;
     int sum = 0;
     while (null != p1 || null != p2 || sum > 0) {
       if (null != p1) {
