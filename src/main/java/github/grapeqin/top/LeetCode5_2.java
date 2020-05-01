@@ -16,9 +16,9 @@ public class LeetCode5_2 {
    */
   public String longestPalindrome(String s) {
     if (null == s) {
-      return null;
+      return "";
     }
-    String res = null;
+    String ans = "";
     int n = s.length();
     boolean[][] dp = new boolean[n][n];
 
@@ -27,15 +27,15 @@ public class LeetCode5_2 {
       for (int j = i; j < n; j++) {
 
         // 包含了初始化dp数组和递推方程两个步骤
-        dp[i][j] = s.charAt(i) == s.charAt(j) && (j - i < 3 || dp[i + 1][j - 1]);
+        dp[i][j] = s.charAt(i) == s.charAt(j) && ((j - i < 3) || dp[i + 1][j - 1]);
 
         // 找到最长的回文子串就更新结果字符串
-        if (dp[i][j] && (null == res || j - i + 1 > res.length())) {
-          res = s.substring(i, j + 1);
+        if (dp[i][j] && ("".equals(ans) || j - i + 1 > ans.length())) {
+          ans = s.substring(i, j + 1);
         }
       }
     }
-    return res;
+    return ans;
   }
 
   public static void main(String[] args) {
