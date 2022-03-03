@@ -41,3 +41,7 @@
 #### 5. 递归回溯
 
 - LeetCode22 : 括号生成
+
+#### 6. 二叉树
+
+- [LeetCode98:验证二叉搜索树](src/main/java/github/grapeqin/binarytree/LeetCode98.java)
