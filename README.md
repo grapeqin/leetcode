@@ -31,6 +31,7 @@
 - [LeetCode450:二叉搜索树的删除](src/main/java/github/grapeqin/binarytree/LeetCode450.java)
 - [LeetCode110:平衡二叉树](src/main/java/github/grapeqin/binarytree/LeetCode110.java)
 - [LeetCode222:完全二叉树的节点个数](src/main/java/github/grapeqin/binarytree/LeetCode222.java)
+- [LeetCode814:二叉树的剪枝](src/main/java/github/grapeqin/binarytree/LeetCode814.java)
 
 ### 2.算法
 
