@@ -29,6 +29,7 @@
 - [LeetCode98:验证二叉搜索树](src/main/java/github/grapeqin/binarytree/LeetCode98.java)
 - [LeetCode700:二叉搜索树的查找](src/main/java/github/grapeqin/binarytree/LeetCode700.java)
 - [LeetCode450:二叉搜索树的删除](src/main/java/github/grapeqin/binarytree/LeetCode450.java)
+- [LeetCode110:平衡二叉树](src/main/java/github/grapeqin/binarytree/LeetCode110.java)
 
 ### 2.算法
 
