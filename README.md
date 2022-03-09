@@ -62,6 +62,8 @@
 
 #### 2.5.回溯算法
 
+- [LeetCode51:N皇后](src/main/java/github/grapeqin/algorithm/backtrack/LeetCode51.java)
+
 #### 2.6.动态规划算法
 
 #### 2.7.双指针
