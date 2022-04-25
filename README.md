@@ -6,6 +6,7 @@
 - [LeetCode2:两数相加](src/main/java/github/grapeqin/top/LeetCode2.java)
 - [LeetCode4:寻找两个有序数组中的中位数](src/main/java/github/grapeqin/top/LeetCode4.java)
 - [LeetCode15:三数之和](src/main/java/github/grapeqin/top/LeetCode15.java)
+- [LeetCode53:最大子序和](src/main/java/github/grapeqin/array/LeetCode53.java)
 
 #### 1.2.链表
 
