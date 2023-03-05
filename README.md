@@ -23,7 +23,7 @@
 #### 1.5.哈希表
 
 - [LeetCode13:罗马数字转整数](src/main/java/github/grapeqin/top/LeetCode13.java)
-
+- [LeetCode146:LRU算法](src/main/java/github/grapeqin/lru/LRUCache.java)
 
 #### 1.6.跳表
 
