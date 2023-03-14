@@ -7,6 +7,10 @@ import java.util.List;
 /**
  * 三数之和
  *
+ * 本题的难点在如何过滤重复结果
+ * 1、处理第1个数的重复
+ * 2、处理第2、3个数的重复
+ *
  * @description
  * @author qinzy
  * @date 2020-01-06
