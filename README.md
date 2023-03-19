@@ -57,6 +57,8 @@
 
 #### 2.1.排序
 
+- [LeetCode912:快速排序](src/main/java/github/grapeqin/array/LeetCode912.java)
+
 #### 2.2.二分查找
 
 #### 2.3.贪心算法
