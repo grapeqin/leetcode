@@ -13,6 +13,7 @@
 
 - [LeetCode206:单链表反转](src/main/java/github/grapeqin/linkedlist/LeetCode206.java)
 - [LeetCode19:删除链表的倒数第N个节点](src/main/java/github/grapeqin/top/LeetCode19.java)
+- [LeetCode21:合并2个有序链表](src/main/java/github/grapeqin/linkedlist/LeetCode21.java)
 
 #### 1.3.栈
 
