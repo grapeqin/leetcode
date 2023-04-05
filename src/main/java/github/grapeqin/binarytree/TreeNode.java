@@ -7,9 +7,9 @@ package github.grapeqin.binarytree;
  */
 public class TreeNode {
 
-  private int val;
-  private TreeNode left;
-  private TreeNode right;
+  int val;
+  TreeNode left;
+  TreeNode right;
 
   private TreeNode() {}
 
