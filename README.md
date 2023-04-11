@@ -79,6 +79,7 @@
 
 #### 2.5.回溯算法
 
+- [LeetCode46:全排列](src/main/java/github/grapeqin/algorithm/backtrack/LeetCode46.java)
 - [LeetCode51:N皇后](src/main/java/github/grapeqin/algorithm/backtrack/LeetCode51.java)
 - [0-1背包问题](src/main/java/github/grapeqin/algorithm/backtrack/ZeroOneBackpackProblem.java)
 
