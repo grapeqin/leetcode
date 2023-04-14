@@ -38,6 +38,7 @@
 
 #### 1.7.二叉树
 
+- [LeetCode94:二叉树的中序遍历](src/main/java/github/grapeqin/binarytree/LeetCode94.java)
 - [LeetCode98:验证二叉搜索树](src/main/java/github/grapeqin/binarytree/LeetCode98.java)
 - [LeetCode110:平衡二叉树](src/main/java/github/grapeqin/binarytree/LeetCode110.java)
 - [LeetCode102:二叉树的层序遍历](src/main/java/github/grapeqin/binarytree/LeetCode102.java)
