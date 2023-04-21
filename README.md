@@ -90,6 +90,8 @@
 
 #### 2.6.动态规划算法
 
+- [LeetCode300:最长上升子序列](src/main/java/github/grapeqin/array/LeetCode300.java)
+
 #### 2.7.双指针
 
 - [LeetCode11:盛最多水的容器](src/main/java/github/grapeqin/top/LeetCode11.java)
