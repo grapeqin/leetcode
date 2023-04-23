@@ -26,6 +26,7 @@
 
 - [LeetCode17:电话号码的字母组合](src/main/java/github/grapeqin/top/LeetCode17.java)
 - [LeetCode20:有效的括号](src/main/java/github/grapeqin/top/LeetCode20.java)
+- [LeetCode232:用栈实现队列](src/main/java/github/grapeqin/stack/LeetCode232.java)
 
 #### 1.4.队列
 
